@@ -29,22 +29,22 @@ public class TestService {
     @PostConstruct
     void init(){
         testQueryJdbcTemplate(1);
-        testQuery();
+        testQuery(2);
     }
 
 
     private void testQueryJdbcTemplate(Integer id) {
         String query = "select * from forme where id = ?";
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(query, id);
-        LOGGER.info("Result with jdbcTemplate: {}/{}/{}", maps.get(0).get("id"), maps.get(0).get("name"), maps.get(0).get("description"));
+        //LOGGER.info("Result with jdbcTemplate: {}/{}/{}", maps.get(0).get("id"), maps.get(0).get("name"), maps.get(0).get("description"));
     }
 
     private void testQuery(Integer id) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             int i = 0;
             PreparedStatement ps = dataSource.getConnection().prepareStatement("select * from forme where id = ?");
-            ps.setInt(++i, 1);
+            ps.setInt(++i, 2);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 LOGGER.info(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
