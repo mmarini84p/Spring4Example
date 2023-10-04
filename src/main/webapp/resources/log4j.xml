@@ -25,10 +25,12 @@
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
         </Logger>
+        <!--
         <Logger name="net.viralpatel" level="info" additivity="false">
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
         </Logger>
+        -->
         <Root level="info">
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
