@@ -22,8 +22,8 @@ public class DbConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://db4free.net:3306/formagin1009");
-        dataSource.setUsername("aaa");
-        dataSource.setPassword("aaa");
+        dataSource.setUsername("formagin");
+        dataSource.setPassword("password");
         return dataSource;
     }
 

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Configuration name="ConfigTest" status="ERROR" monitorInterval="5">
     <Appenders>
         <Console name="default.console" target="SYSTEM_OUT">
@@ -9,26 +10,8 @@
                 <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>
         </File>
-
-        <!--<Appender name="default.console" class="org.apache.log4j.ConsoleAppender">
-            <param name="target" value="System.out"/>
-            <param name="threshold" value="debug"/>
-            <layout class="org.apache.log4j.PatternLayout">
-                <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n"/>
-            </layout>
-        </Appender>
-        <Appender name="default.file" class="org.apache.log4j.FileAppender">
-            <param name="file" value="/log/mylogfile.log"/>
-            <param name="append" value="false"/>
-            <param name="threshold" value="debug"/>
-            <layout class="org.apache.log4j.PatternLayout">
-                <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] - %m%n"/>
-            </layout>
-        </Appender>-->
-
     </Appenders>
     <Loggers>
-        <!-- logging.level.org.springframework.jdbc.core=TRACE -->
         <Logger name="org.springframework.jdbc.core.JdbcTemplate" level="trace" additivity="false">
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
@@ -37,25 +20,18 @@
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
         </Logger>
-        <Logger name="com.mysql" level="trace" additivity="false">
+
+        <Logger name="org.springframework" level="error" additivity="false">
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
         </Logger>
-        <Logger name="java.sql" level="trace" additivity="false">
+        <Logger name="net.viralpatel" level="info" additivity="false">
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
         </Logger>
-        <!--
-        <Logger name="net.viralpatel" level="debug" additivity="false">
-            <AppenderRef ref="default.console"/>
-            <AppenderRef ref="default.file"/>
-        </Logger>
-        -->
-        <!--
-        <Root level="debug">
+        <Root level="info">
             <AppenderRef ref="default.console"/>
             <AppenderRef ref="default.file"/>
         </Root>
-        -->
     </Loggers>
 </Configuration>

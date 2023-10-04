@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
 import java.util.Map;
 
@@ -29,14 +28,14 @@ public class TestService {
     @PostConstruct
     void init(){
         testQueryJdbcTemplate(1);
-        testQuery(2);
+        //testQuery(2);
     }
 
 
     private void testQueryJdbcTemplate(Integer id) {
         String query = "select * from forme where id = ?";
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(query, id);
-        //LOGGER.info("Result with jdbcTemplate: {}/{}/{}", maps.get(0).get("id"), maps.get(0).get("name"), maps.get(0).get("description"));
+        LOGGER.info("Result with jdbcTemplate: {}/{}/{}", maps.get(0).get("id"), maps.get(0).get("name"), maps.get(0).get("description"));
     }
 
     private void testQuery(Integer id) {
